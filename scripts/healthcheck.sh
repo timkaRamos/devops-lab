@@ -6,6 +6,13 @@
 LOG_FILE=~/devops-lab/logs/healthcheck.log
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
+# Обрезаем лог если больше 1000 строк
+if [ $(wc -l < $LOG_FILE 2>/dev/null || echo 0) -gt 1000 ]; then
+    tail -200 $LOG_FILE > $LOG_FILE.tmp
+    mv $LOG_FILE.tmp $LOG_FILE
+    echo "Лог обрезан: $(date)" >> $LOG_FILE
+fi
+
 echo "=== Health Check: $DATE ===" | tee -a $LOG_FILE
 
 check_http() {
