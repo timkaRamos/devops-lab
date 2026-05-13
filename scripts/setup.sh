@@ -24,3 +24,12 @@ ls $PROJECT_DIR
 echo "Скрипт запущен: $(date)" >> $PROJECT_DIR/logs/setup.log
 
 echo "=== Готово! ==="
+
+# Проверка диска
+echo "Проверяю место на диске..."
+DISK_USAGE=$(df / | tail -1 | awk '{print $5}' | tr -d '%')
+if [ $DISK_USAGE -gt 80 ]; then
+    echo "⚠️  ВНИМАНИЕ: диск заполнен на $DISK_USAGE%"
+else
+    echo "✅ Диск OK: заполнен на $DISK_USAGE%"
+fi
