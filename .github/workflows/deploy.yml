@@ -15,8 +15,8 @@ jobs:
 
       - name: Deploy
         run: |
-          cd ~/devops-lab
+          cd /home/nextgistest/devops-lab
           git pull
-          docker compose down
-          docker compose up -d --build
+          docker-compose down
+          docker-compose up -d --build
           echo "✅ Deployed at $(date)"
