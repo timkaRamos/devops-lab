@@ -5,4 +5,4 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 
 # Открываем порт 80
-expose 80
+Expose 80
