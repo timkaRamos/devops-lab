@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devops-lab-html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DevOps Lab — Tima Zhaparov</title>
+        <style>
+            body { font-family: Arial; background: #1a1a2e; color: #eee; padding: 40px; }
+            h1 { color: #00d4ff; }
+            .status { background: #16213e; padding: 20px; border-radius: 8px; margin: 10px 0; }
+            .ok { color: #00ff88; }
+        </style>
+    </head>
+    <body>
+        <h1>DevOps Lab</h1>
+        <p>Автор: Tima Zhaparov</p>
+        <div class="status"><span class="ok">✅ Работает в Kubernetes</span></div>
+        <div class="status"><span class="ok">🚀 CI/CD pipeline активен</span></div>
+        <div class="status"><span class="ok">☸️  Реплик: 2</span></div>
+    </body>
+    </html>
